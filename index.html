@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Experiência WebAR</title>
+    <!-- Carregamento das bibliotecas de RA -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-    <title>Aula de Realidade Aumentada</title>
-  </head>
-  <body>
-    <h1>Minha aplicação WebAR</h1>
-    <p>Aplicação publicada utilizando GitHub Pages.</p>
-    <a-scene mindar-image="imageTargetSrc: .../card.mind;"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false">
-      <a-camera position="0 0 0" look-controls="enabled:
-      false"></a-camera>
-
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-box position="0 0 0.25" rotation="0 0 0" scale="0.5
-        0.5 0.5"></a-box>
-      </a-entity>
+</head>
+<body>
+    <!-- Cena de RA vinculada ao arquivo compilado do marcador (.mind) -->
+    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/examples/image-tracking/assets/card-example/card.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <!-- Câmera do sistema virtual -->
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+        
+        <!-- Conteúdo virtual amarrado ao Target de Índice 0 -->
+        <a-entity mindar-image-target="targetIndex: 0">
+            <!-- Cubo virtual (posição, rotação inicial e tamanho) -->
+            <a-box position="0 0 0.25" rotation="0 0 0" scale="0.5 0.5 0.5"></a-box>
+        </a-entity>
     </a-scene>
-  </body>
+</body>
 </html>
