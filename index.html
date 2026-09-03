@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartão RA - Corinthians</title>
+    <title>Cartão RA - Corinthians com Modelo 3D</title>
     <!-- Importação das bibliotecas obrigatórias de RA -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -15,15 +15,25 @@
 
     <!-- Configuração da cena de RA apontando para o seu target compilado -->
     <a-scene mindar-image="imageTargetSrc: ./assets/targets/targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        
+        <!-- Gerenciador de Assets: Pré-carrega o modelo 3D para evitar travamentos -->
+        <a-assets>
+            <a-asset-item id="corinthians3d" src="./assets/models/sccp.glb"></a-asset-item>
+        </a-assets>
+
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
         
         <!-- Entidade que renderiza os elementos quando o escudo é detectado -->
         <a-entity mindar-image-target="targetIndex: 0">
             
+            <!-- MODELO 3D (.glb) centralizado -->
+            <!-- Importante: Ajuste os valores de scale se o modelo sumir ou ficar gigante -->
+            <a-gltf-model src="#corinthians3d" position="0 0 0.1" rotation="0 0 0" scale="0.3 0.3 0.3"></a-gltf-model>
+
             <!-- BLOCO 1: Nome e Área (Posicionado no topo do escudo) -->
             <a-entity position="0 0.6 0.05">
                 <a-plane color="#111111" opacity="0.9" width="1.2" height="0.2"></a-plane>
-                <a-text value="Seu Nome Completo" color="#FFFFFF" align="center" width="2" position="0 0.03 0.01"></a-text>
+                <a-text value="Otavio Pinheiro" color="#FFFFFF" align="center" width="2" position="0 0.03 0.01"></a-text>
                 <a-text value="Desenvolvedor Web & RA" color="#CC0000" align="center" width="1.5" position="0 -0.05 0.01"></a-text>
             </a-entity>
 
@@ -38,7 +48,7 @@
             <a-entity position="0.75 0 0.05" rotation="0 -15 0">
                 <a-plane color="#111111" opacity="0.9" width="0.6" height="0.4"></a-plane>
                 <a-text value="CONTATO" color="#CC0000" align="center" width="1.4" position="0 0.14 0.01"></a-text>
-                <a-text value="Email: seu-email@provedor.com\nGithub: github.com/seu-usuario" color="#FFFFFF" align="left" width="1" position="-0.26 -0.02 0.01"></a-text>
+                <a-text value="Email: otaviopgarcia28@gmail.com\nGithub: github.com/otaviopgarcia" color="#FFFFFF" align="left" width="1" position="-0.26 -0.02 0.01"></a-text>
             </a-entity>
 
         </a-entity>
