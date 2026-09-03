@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Experiência WebAR</title>
-    <!-- Carregamento das bibliotecas de RA -->
+    <title>Cartão RA - Corinthians</title>
+    <!-- Importação das bibliotecas obrigatórias de RA -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <!-- Vínculos com os arquivos locais de estilo e lógica -->
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/app.js" defer></script>
 </head>
 <body>
-    <!-- Cena de RA vinculada ao arquivo compilado do marcador (.mind) -->
-    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/examples/image-tracking/assets/card-example/card.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-        <!-- Câmera do sistema virtual -->
+
+    <!-- Configuração da cena de RA apontando para o seu target compilado -->
+    <a-scene mindar-image="imageTargetSrc: ./assets/targets/targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
         
-        <!-- Conteúdo virtual amarrado ao Target de Índice 0 -->
+        <!-- Entidade que renderiza os elementos quando o escudo é detectado -->
         <a-entity mindar-image-target="targetIndex: 0">
-            <!-- Cubo virtual (posição, rotação inicial e tamanho) -->
-            <a-box position="0 0 0.25" rotation="0 0 0" scale="0.5 0.5 0.5"></a-box>
+            
+            <!-- BLOCO 1: Nome e Área (Posicionado no topo do escudo) -->
+            <a-entity position="0 0.6 0.05">
+                <a-plane color="#111111" opacity="0.9" width="1.2" height="0.2"></a-plane>
+                <a-text value="Seu Nome Completo" color="#FFFFFF" align="center" width="2" position="0 0.03 0.01"></a-text>
+                <a-text value="Desenvolvedor Web & RA" color="#CC0000" align="center" width="1.5" position="0 -0.05 0.01"></a-text>
+            </a-entity>
+
+            <!-- BLOCO 2: Sobre Mim (Posicionado na lateral esquerda com leve rotação 3D) -->
+            <a-entity position="-0.75 0 0.05" rotation="0 15 0">
+                <a-plane color="#111111" opacity="0.9" width="0.6" height="0.4"></a-plane>
+                <a-text value="SOBRE MIM" color="#CC0000" align="center" width="1.4" position="0 0.14 0.01"></a-text>
+                <a-text value="Estudante de tecnologia focado em solucoes de Realidade Aumentada aplicadas a Web." color="#FFFFFF" align="left" width="1" position="-0.26 -0.02 0.01"></a-text>
+            </a-entity>
+
+            <!-- BLOCO 3: Contato (Posicionado na lateral direita com leve rotação 3D) -->
+            <a-entity position="0.75 0 0.05" rotation="0 -15 0">
+                <a-plane color="#111111" opacity="0.9" width="0.6" height="0.4"></a-plane>
+                <a-text value="CONTATO" color="#CC0000" align="center" width="1.4" position="0 0.14 0.01"></a-text>
+                <a-text value="Email: seu-email@provedor.com\nGithub: github.com/seu-usuario" color="#FFFFFF" align="left" width="1" position="-0.26 -0.02 0.01"></a-text>
+            </a-entity>
+
         </a-entity>
     </a-scene>
 </body>

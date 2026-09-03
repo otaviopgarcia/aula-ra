@@ -1,0 +1,5 @@
+/* Remove margens e garante que a câmera ocupe a tela inteira sem barras de rolagem */
+body {
+    margin: 0;
+    overflow: hidden;
+}
